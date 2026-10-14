@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Kopi Corner Bill Splitter</title>
+<style>
+body { font-family: Arial; padding: 20px; }
+input { display: block; margin-bottom: 10px; padding: 6px; }
+</style>
+</head>
+<body>
+<h1>Kopi Corner Bill Splitter</h1>
+<label>Food total (RM)</label>
+<input id="food" type="number" value="40">
+<label>Drinks total (RM)</label>
+<input id="drinks" type="number" value="20">
+<label>Tip (%)</label>
+<input id="tip" type="number" value="10">
+<label>Number of people</label>
+<input id="people" type="number" value="3">
+<button onclick="calculate()">Split the bill</button>
+<p id="totalText"></p>
+<p id="tipText"></p>
+<p id="eachText"></p>
+
+<script>
+function calculate() {
+  var food = document.getElementById("food").value;
+  var drinks = document.getElementById("drinks").value;
+  var tipPercent = document.getElementById("tip").value;
+  var people = document.getElementById("people").value;
+  var subtotal = food + drinks;
+  var tip = subtotal * tipPercent;
+  var total = subtotal + tip;
+  var each = total / people;
+  showTotal(total);
+  showTip(tip);
+  showEach(each);
+}
+
+function showTotal(amount) {
+  var rounded = Math.round(amount * 100) / 100;
+  document.getElementById("totalText").innerText = "Total: RM " + rounded;
+}
+
+function showTip(amount) {
+  var rounded = Math.round(amount * 100) / 100;
+  document.getElementById("tiptext").innerText = "Tip: RM " + rounded;
+}
+
+function showEach(amount {
+  var rounded = Math.round(amount * 100) / 100;
+  document.getElementById("eachText").innerText = "Each person pays: RM " + rounded;
+}
+</script>
+</body>
+</html>
